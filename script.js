@@ -3,7 +3,7 @@ let alunos = [];
 
 // Função para cadastrar um novo aluno
 function cadastrarAluno() {
-    const nome = document.getElementById("nome").value;
+    const nome = document.getElementById("nome_sobrenome").value;
     const matricula = document.getElementById("matricula").value;
     const curso = document.getElementById("curso").value;
 
