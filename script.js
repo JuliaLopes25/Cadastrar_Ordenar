@@ -1,41 +1,51 @@
-// Defina um array para armazenar os dados dos alunos
 let alunos = [];
 
-// Função para cadastrar um novo aluno
 function cadastrarAluno() {
-    const nome = document.getElementById("nome_sobrenome").value;
-    const matricula = document.getElementById("matricula").value;
-    const curso = document.getElementById("curso").value;
+    const Nome = document.getElementById("nome").value;
+    const RA = document.getElementById("RA").value;
+    const Idade = document.getElementById("Idade").value;
+    const Media = document.getElementById("Media").value;
+    const Sexo = document.getElementById("sexo").value;
 
-    if (nome && matricula && curso) {
+    let situacao = "";
+    if (Media >= 6.0) {
+        situacao = "Aprovado";
+    } else {
+        situacao = "Reprovado";
+    }
+
+    if (Nome && RA && Idade && Sexo && !isNaN(Media)) {
         const aluno = {
-            nome: nome,
-            matricula: matricula,
-            curso: curso,
+            Nome: Nome,
+            RA: RA,
+            Idade: Idade,
+            Media: Media, 
+            Sexo: Sexo,
+            Situacao: situacao
         };
 
         alunos.push(aluno);
 
-        // Limpe os campos de entrada
         document.getElementById("nome").value = "";
-        document.getElementById("matricula").value = "";
-        document.getElementById("curso").value = "";
+        document.getElementById("RA").value = "";
+        document.getElementById("Idade").value = "";
+        document.getElementById("Media").value = "";
+        document.getElementById("sexo").value = "";
 
         listarAlunos();
     }
 }
 
-// Função para listar todos os alunos cadastrados
 function listarAlunos() {
     const listaAlunos = document.getElementById("alunos");
     listaAlunos.innerHTML = "";
 
-    alunos.forEach((aluno, index) => {
+    alunos.forEach((aluno, i) => {
         const li = document.createElement("li");
-        li.textContent = `#${index + 1} - Nome: ${aluno.nome}, Matrícula: ${aluno.matricula}, Curso: ${aluno.curso}`;
+        li.textContent = ` - Nome: ${aluno.Nome} - RA: ${aluno.RA} - Idade: ${aluno.Idade}
+         - Sexo: ${aluno.Sexo} - Média: ${aluno.Media} - Média: ${aluno.Situacao}`; 
         listaAlunos.appendChild(li);
     });
 }
 
-// Adicione um ouvinte de evento para o botão "Cadastrar"
 document.getElementById("cadastrar").addEventListener("click", cadastrarAluno);
