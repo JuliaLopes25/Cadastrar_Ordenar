@@ -31,6 +31,7 @@ function cadastrarAluno() {
         document.getElementById("Idade").value = "";
         document.getElementById("Media").value = "";
         document.getElementById("sexo").value = "";
+        document.getElementById("situacao").value = "";
 
         listarAlunos();
     }
@@ -43,7 +44,7 @@ function listarAlunos() {
     alunos.forEach((aluno, i) => {
         const li = document.createElement("li");
         li.textContent = ` - Nome: ${aluno.Nome} - RA: ${aluno.RA} - Idade: ${aluno.Idade}
-         - Sexo: ${aluno.Sexo} - Média: ${aluno.Media} - Média: ${aluno.Situacao}`; 
+         - Sexo: ${aluno.Sexo} - Média: ${aluno.Media} - Situação: ${aluno.Situacao}`; 
         listaAlunos.appendChild(li);
     });
 }

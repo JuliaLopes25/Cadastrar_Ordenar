@@ -7,13 +7,21 @@ function cadastrarAluno() {
     const Media = document.getElementById("Media").value;
     const Sexo = document.getElementById("sexo").value;
 
+    let situacao = "";
+    if (Media >= 6.0) {
+        situacao = "Aprovado";
+    } else {
+        situacao = "Reprovado";
+    }
+
     if (Nome && RA && Idade && Sexo && Media) {
         const aluno = {
             Nome: Nome,
             RA: RA,
             Idade: Idade,
             Media: Media, // Corrigido para "Media" em maiúscula
-            Sexo: Sexo
+            Sexo: Sexo,
+            Situacao : situacao
         };
 
         alunos.push(aluno);
@@ -24,7 +32,7 @@ function cadastrarAluno() {
         document.getElementById("Media").value = "";
         document.getElementById("sexo").value = "";
 
-        listarAlunos();
+        
     }
 }
 
@@ -34,9 +42,10 @@ function listarAlunos() {
 
     alunos.forEach((aluno, i) => {
         const li = document.createElement("li");
-        li.textContent = ` - Nome: ${aluno.Nome} - RA: ${aluno.RA} - Idade: ${aluno.Idade} - Sexo: ${aluno.Sexo} - Média: ${aluno.Media}`; // Corrigido para "Média" em maiúscula
+        li.textContent = ` - Nome: ${aluno.Nome} - RA: ${aluno.RA} - Idade: ${aluno.Idade} - Sexo: ${aluno.Sexo} - Média: ${aluno.Media} - Situação: ${aluno.Situacao}`; // Corrigido para "Média" em maiúscula
         listaAlunos.appendChild(li);
     });
 }
 
 document.getElementById("cadastrar").addEventListener("click", cadastrarAluno);
+document.getElementById("listar").addEventListener("click", listarAlunos);
