@@ -9,6 +9,7 @@
 <body>
     <h1>Cadastro de Alunos</h1>
     <form>
+        <!-- Campos do formulário -->
         <label for="nome">Nome:</label>
         <input type="text" id="nome" required>
         <label for="RA">RA:</label>
@@ -23,14 +24,20 @@
             <option value="Masculino">MASCULINO</option>
         </select>
         <p></p>
+        <!-- Botões de ação -->
         <button type="button" id="cadastrar">Cadastrar</button>
         <button type="button" id="listar">Listar</button>
+        <button type="button" id="ordenarPorRA">Ordenar - RA</button>
+        <button type="button" id="ordenarPorNome">Ordenar - Nome</button>
+        <button type="button" id="ordenarPorNomeAprovados">Ordenar - Nome - Aprovados</button>
     </form>
+    <!-- Lista de alunos -->
     <div id="lista-alunos">
         <h2>Lista de Alunos</h2>
         <ul id="alunos">
         </ul>
     </div>
+    <!-- Inclusão de arquivo JavaScript -->
     <script src="script.mjs"></script>
 </body>
 </html>
