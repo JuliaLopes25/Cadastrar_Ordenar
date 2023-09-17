@@ -1,5 +1,6 @@
 let alunos = [];
 let aprovados = [];
+let testegit
 
 // Função para cadastrar um aluno
 function cadastrarAluno() {
